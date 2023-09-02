@@ -1,4 +1,9 @@
 [build]
-    publish = "dist/"
+  publish = "dist/"
+  
+[functions]
+  directory = "serverless/"
 
-    functions = "serverless/"
+
+
+   
