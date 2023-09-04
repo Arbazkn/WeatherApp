@@ -1,5 +1,6 @@
 [build]
-  publish = "dist/"
+publish = "dist/"
   
 [functions]
-  node_bundler = "esbuild"
+directory = "serverless/"
+node_bundler = "esbuild"
