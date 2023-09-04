@@ -1,8 +1,8 @@
-const fetch = require("node-fetch");
+import fetch from "node-fetch";
 
 const { WEATHER_API_KEY } = process.env;
 
-exports.handler = async (event, context) => {
+export async function handler(event, context) {
   const params = JSON.parse(event.body);
   const { text, unit } = params;
   const regex = /^\d+$/g;
@@ -23,4 +23,4 @@ exports.handler = async (event, context) => {
       body: err.stack,
     };
   }
-};
+}

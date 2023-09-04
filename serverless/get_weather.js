@@ -1,8 +1,8 @@
-const fetch = require("node-fetch");
+import fetch from "node-fetch";
 
 const { VISUAL_WEATHER_API_KEY } = process.env;
 
-exports.handler = async (event, context) => {
+export async function handler(event, context) {
   const params = JSON.parse(event.body);
   const { lat, lon, unit } = params;
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}?include=days&unitGroup=${units}&key=${VISUAL_WEATHER_API_KEY}&contentType=json`;
@@ -20,4 +20,4 @@ exports.handler = async (event, context) => {
       body: err.stack,
     };
   }
-};
+}
