@@ -33,7 +33,7 @@ export const getWeatherFromCoords = async (locationObj) => {
   const urlDataObject = {
     lat: locationObj.getLat(),
     lon: locationObj.getLon(),
-    units: locationObj.getUnit() == "imperial" ? "uk" : "metric",
+    unit: locationObj.getUnit() == "imperial" ? "uk" : "metric",
   };
 
   try {
