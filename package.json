@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Arbazkn/WeatherApp#readme",
   "dependencies": {
+    "axios": "^1.2.0",
     "node-fetch": "^3.3.2"
   }
 }

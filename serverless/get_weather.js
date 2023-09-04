@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+import axios from "axios";
 
 const { VISUAL_WEATHER_API_KEY } = process.env;
 
@@ -8,11 +8,11 @@ export async function handler(event, context) {
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}?include=days&unitGroup=${unit}&key=${VISUAL_WEATHER_API_KEY}&contentType=json`;
 
   try {
-    const weatherStream = await fetch(url);
-    const weatherJson = await weatherStream.json();
+    const response = await axios.get(url);
+    const weatherStream = response.data;
     return {
       statusCode: 200,
-      body: JSON.stringify(weatherJson),
+      body: JSON.stringify(weatherStream),
     };
   } catch (err) {
     return {
