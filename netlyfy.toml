@@ -2,8 +2,4 @@
   publish = "dist/"
   
 [functions]
-  # Sets a custom directory for Netlify Functions
-  directory = "serverless/"
-
-  # Specifies `esbuild` for functions bundling
   node_bundler = "esbuild"
