@@ -11,6 +11,7 @@
     "url": "git+https://github.com/Arbazkn/WeatherApp.git"
   },
   "keywords": [],
+  "type": "module",
   "author": "",
   "license": "ISC",
   "bugs": {
