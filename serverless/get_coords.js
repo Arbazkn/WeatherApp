@@ -6,9 +6,9 @@ export async function handler(event, context) {
   const params = JSON.parse(event.body);
   const { text, unit } = params;
   const regex = /^\d+$/g;
-  const flag = regex.test(entryText) ? "zip" : "q";
+  const flag = regex.test(text) ? "zip" : "q";
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?${flag}=${entryText}&units=${unit}&appid=${WEATHER_API_KEY}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?${flag}=${text}&units=${unit}&appid=${WEATHER_API_KEY}`;
   const encodedURI = encodeURI(url);
   try {
     const dataStream = await fetch(url);
