@@ -176,7 +176,7 @@ const buildScreenReader = (weatherJson, locationObj) => {
   const location = locationObj.getName();
   const unit = locationObj.getUnit();
 
-  const tempUnit = unit == "imperial" ? "farenheit" : "celsius";
+  const tempUnit = unit == "us" ? "farenheit" : "celsius";
   return `${weatherJson.days[0].conditions} and ${Math.round(
     Number(weatherJson.days[0].temp)
   )}° ${tempUnit} in ${location}`;
@@ -187,7 +187,8 @@ const setFocusonSearch = () => {
 };
 
 const createCurrentConditionsDivs = (weatherJson, unit) => {
-  const windUnit = unit == "imperial" ? "mph" : "m/s";
+  const tempUnit = unit == "us" ? "F" : "C";
+  const windUnit = unit == "us" ? "mph" : "m/s";
 
   const icon = createMainImgDiv(
     weatherJson.days[0].icon,
@@ -197,7 +198,8 @@ const createCurrentConditionsDivs = (weatherJson, unit) => {
   const temp = createElem(
     "div",
     "temp",
-    `${Math.round(Number(weatherJson.days[0].temp))}°`
+    `${Math.round(Number(weatherJson.days[0].temp))}°`,
+    tempUnit
   );
   const properDesc = toProperMessage(weatherJson.days[0].conditions);
   const desc = createElem("div", "desc", properDesc);
