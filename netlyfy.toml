@@ -3,6 +3,7 @@
   
 [functions]
   directory = "serverless/"
+  node_bundler = "esbuild"
 
 
 
